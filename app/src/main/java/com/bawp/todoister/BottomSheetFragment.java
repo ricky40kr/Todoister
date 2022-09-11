@@ -32,8 +32,6 @@ public class BottomSheetFragment extends BottomSheetDialogFragment implements Vi
     private ImageButton calenderButton;
     private RadioGroup priorityRadioGroup;
     private ImageButton priorityButton;
-    private RadioButton selectedRadioButton;
-    private int selectedButtonId;
     private ImageButton saveButton;
     private CalendarView calendarView;
     private Group calendarGroup;
