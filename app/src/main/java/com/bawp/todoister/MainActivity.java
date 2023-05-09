@@ -21,7 +21,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 public class MainActivity extends AppCompatActivity implements OnToDoClickListner {
-    private TaskViewModel taskViewModel;
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
     private BottomSheetFragment bottomSheetFragment;
@@ -45,11 +44,11 @@ public class MainActivity extends AppCompatActivity implements OnToDoClickListne
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        taskViewModel = new ViewModelProvider.AndroidViewModelFactory(MainActivity.this.getApplication()).create(TaskViewModel.class);
+        TaskViewModel taskViewModel = new ViewModelProvider.AndroidViewModelFactory(MainActivity.this.getApplication()).create(TaskViewModel.class);
 
         sharedViewModel=new ViewModelProvider(this).get(SharedViewModel.class);
 
-        taskViewModel.getAllTasks().observe(this,tasks->{
+        taskViewModel.getAllTasks().observe(this, tasks->{
             recyclerViewAdapter=new RecyclerViewAdapter(tasks,this);
             recyclerView.setAdapter(recyclerViewAdapter);
         });
